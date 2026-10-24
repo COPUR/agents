@@ -1,0 +1,11 @@
+{
+  "name": "ev-roaming-hubs",
+  "displayName": "Ev Roaming Hubs",
+  "version": "1.0.0",
+  "description": "Public-source analysis of EV roaming hubs (Hubject OICP and Plug&Charge, GIREVE OCPI/eMIP/PNCP, e-clearing.net OCPI/OCHP): protocol maps, Mermaid message flows, onboarding steps and gap analysis against an OCPI eMSP",
+  "author": {
+    "name": "COPUR",
+    "email": ""
+  },
+  "license": "MIT"
+}

@@ -13,7 +13,7 @@
     {
       "name": "documentation-standards",
       "source": "./plugins/documentation-standards",
-      "description": "HADS (Human-AI Document Standard) — semantic tagging convention for docs that work for both humans and AI models — plus the grounded-vault pattern for provenance-linked, drift-checked knowledge stores.",
+      "description": "HADS (Human-AI Document Standard) \u2014 semantic tagging convention for docs that work for both humans and AI models \u2014 plus the grounded-vault pattern for provenance-linked, drift-checked knowledge stores.",
       "version": "1.1.0",
       "author": {
         "name": "Niksa Barlovic",
@@ -1292,6 +1292,19 @@
         "deck-generation",
         "slide-design"
       ]
+    },
+    {
+      "name": "ev-roaming-hubs",
+      "source": "./plugins/ev-roaming-hubs",
+      "description": "Public-source analysis of EV roaming hubs (Hubject OICP and Plug&Charge, GIREVE OCPI/eMIP/PNCP, e-clearing.net): protocol maps, Mermaid message flows, onboarding steps and gap analysis against an OCPI eMSP",
+      "version": "1.0.0",
+      "author": {
+        "name": "COPUR",
+        "url": "https://github.com/COPUR"
+      },
+      "homepage": "https://github.com/COPUR/agents",
+      "license": "MIT",
+      "category": "api"
     }
   ]
 }
