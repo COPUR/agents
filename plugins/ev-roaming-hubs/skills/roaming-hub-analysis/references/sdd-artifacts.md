@@ -23,7 +23,7 @@ specs/roaming-hubs/
       *.asyncapi.yaml           webhooks and notification streams
       *.profile.yaml            hub deviations from a base protocol (overlay, see below)
       mapping-*.yaml            field-level translation tables
-    acceptance/*.feature        Gherkin, one file per flow
+    acceptance/*.feature        Gherkin, one file per flow (happy and error scenarios)
     tasks.md                    ordered work items with dependencies and requirement IDs
 ```
 
@@ -54,7 +54,7 @@ Rules: derive only from sources. `inference` needs the premise written out. `unk
 
 ## Acceptance (Gherkin)
 
-One feature per flow. Steps use the baseline's vocabulary (OCPI objects) on one side and the hub's on the other. Tag each scenario `@RH-...` with the requirement it proves and `@sandbox` when it can only run against the hub's test environment, `@mock` when a recorded or simulated hub is enough. No scenario may assume behaviour the sources do not state; tag those `@pending-confirmation`.
+One feature per flow. Steps use the baseline's vocabulary (OCPI objects) on one side and the hub's on the other. Tag each scenario `@happy` or `@error` and `@RH-...` with the requirement it proves and `@sandbox` when it can only run against the hub's test environment, `@mock` when a recorded or simulated hub is enough. No scenario may assume behaviour the sources do not state; tag those `@pending-confirmation`.
 
 ## Tasks
 
@@ -62,7 +62,7 @@ One feature per flow. Steps use the baseline's vocabulary (OCPI objects) on one 
 
 ## Traceability
 
-Run `scripts/build_traceability.py <specs dir>`; it writes the CSV and lists requirements missing a task or scenario, and acceptance tags with no requirement.
+Requirements checked by a runbook or onboarding checklist use `verify: runbook check (...)` and need no Gherkin. Run `scripts/build_traceability.py <specs dir>`; it writes the CSV and lists requirements missing a task or scenario, and acceptance tags with no requirement.
 
 
 `traceability.csv` columns: `requirement_id,hub,area,priority,confidence,source_url,contract,acceptance,task,status`. Every requirement has a row; empty `acceptance` or `task` cells are gaps to report.

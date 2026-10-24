@@ -15,6 +15,7 @@ Sources (re-check licences before redistributing):
   OICP 2.3 EMP/CPO OpenAPI  github.com/hubject/oicp-emp-2.3-api-doc  (CC BY-SA 4.0 via hubject/oicp)
   OPCP 1.0.0 component APIs github.com/hubject/opcp                  (CC BY-SA 4.0)
 """
+
 from __future__ import annotations
 
 import argparse
@@ -41,10 +42,20 @@ OPCP = ["rcp", "pcp", "cps", "ccp", "est", "webhooks"]
 MO_OPS = {
     "rcp": {"getRootCert", "getAllRootCerts", "get-v1-root-ctl"},
     "pcp": {"getOEMProvCert", "lookupVehicle"},
-    "cps": {"createSignedContractData", "createAndForwardSignedContractData",
-            "generateSignedContractData", "put-v1-cps-signContractData", "get-cps-signer"},
-    "ccp": {"addSignedContractData", "deleteSignedContractData", "lookupContract",
-            "getContracts", "setDefaultContract"},
+    "cps": {
+        "createSignedContractData",
+        "createAndForwardSignedContractData",
+        "generateSignedContractData",
+        "put-v1-cps-signContractData",
+        "get-cps-signer",
+    },
+    "ccp": {
+        "addSignedContractData",
+        "deleteSignedContractData",
+        "lookupContract",
+        "getContracts",
+        "setDefaultContract",
+    },
     "est": {"simpleenroll", "cacerts"},
     "webhooks": None,  # all
 }
@@ -130,8 +141,11 @@ def oicp(role: str, url: str, out: Path) -> None:
         annotate(paths[path], role)
     doc = {
         "openapi": "3.0.0",
-        "info": {"title": f"OICP 2.3 {role.upper()} (pinned subset)", "version": "2.3.0",
-                 **provenance(url, "CC BY-SA 4.0")},
+        "info": {
+            "title": f"OICP 2.3 {role.upper()} (pinned subset)",
+            "version": "2.3.0",
+            **provenance(url, "CC BY-SA 4.0"),
+        },
         "servers": spec.get("servers", []),
         "paths": paths,
     }
@@ -146,8 +160,11 @@ def opcp(name: str, out: Path) -> None:
     allowed = MO_OPS[name]
     paths = {}
     for path, item in spec["paths"].items():
-        kept = {m: o for m, o in item.items()
-                if m not in HTTP or allowed is None or o.get("operationId") in allowed}
+        kept = {
+            m: o
+            for m, o in item.items()
+            if m not in HTTP or allowed is None or o.get("operationId") in allowed
+        }
         if any(m in HTTP for m in kept):
             paths[path] = kept
     spec["paths"] = paths

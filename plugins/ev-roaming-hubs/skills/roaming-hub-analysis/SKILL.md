@@ -21,10 +21,11 @@ Reconstruct a hub's protocols, flows and onboarding from what the hub publishes,
 3. **Extract** per hub into `references/report-template.md`: protocol and module map, identity and security, message flows, Plug&Charge, onboarding and certification, commercial model, limitations.
 4. **Tag every claim** Fact (cite), Inference (state the premise) or Unknown (name who can answer). Sources that conflict go in a "Conflicts" table with the more authoritative one marked.
 5. **Diagram** each key flow as Mermaid `sequenceDiagram`. Use only participants and messages the sources show. Mark assumed steps with a `Note` containing "(assumed)".
+5a. **Flow catalogue: happy and failure.** For every flow (registration, authorize, remote start and stop, notifications, session, CDR, data pull, Plug&Charge) record the happy path and a failure table, per `references/flows-guide.md`. Use only status codes, timeouts and retry rules the sources state.
 6. **Gap analysis.** Compare to the baseline eMSP module by module. Each gap gets severity (blocker, needed for the pilot, later), an owner and a source.
 7. **Repository needs.** Turn the gaps into a short list for the hub-connector repository: adapters, translators, test suites, configuration, runbooks.
 8. **Open questions.** One list per hub for its onboarding team. Include everything you could not verify.
-9. **Spec bundle.** Emit the spec-driven-development artifacts in `references/sdd-artifacts.md`: per-hub spec, plan, data model, contracts (pinned OpenAPI and AsyncAPI where the hub publishes them, overlay profiles where it only publishes PDFs), Gherkin acceptance files, tasks, a traceability CSV and ADRs. Run `scripts/fetch_public_contracts.py` for the pinned contracts; do not retype published schemas. Lint each contract and report the result.
+9. **Spec bundle.** Emit the spec-driven-development artifacts in `references/sdd-artifacts.md`: per-hub spec, plan, data model, contracts (pinned OpenAPI and AsyncAPI where the hub publishes them, overlay profiles where it only publishes PDFs), Gherkin acceptance files (tag `@happy` or `@error`), tasks, a traceability CSV and ADRs. Run `scripts/fetch_public_contracts.py` for the pinned contracts; do not retype published schemas. Lint each contract and report the result.
 
 ## Where to look, by hub
 

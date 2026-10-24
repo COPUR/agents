@@ -20,8 +20,18 @@ META = re.compile(r"^- (source|confidence|priority|contract|verify): (.*)$")
 TAG = re.compile(r"@(RH-[A-Z]+-[A-Z]+-\d{3})")
 TASK = re.compile(r"^- (T-[A-Z]+-\d+) \| [^|]+\| ([^|]+)\|")
 SHORT = re.compile(r"\b([A-Z]+)-(\d{3})(?:\.\.(\d{3}))?\b|\b([A-Z]+)-\*")
-COLUMNS = ["requirement_id", "hub", "area", "priority", "confidence", "source_url",
-           "contract", "acceptance", "task", "status"]
+COLUMNS = [
+    "requirement_id",
+    "hub",
+    "area",
+    "priority",
+    "confidence",
+    "source_url",
+    "contract",
+    "acceptance",
+    "task",
+    "status",
+]
 
 
 def parse_spec(path: Path) -> list[dict]:
@@ -77,15 +87,29 @@ def main(root: Path) -> int:
         for r in reqs:
             rid = r["requirement_id"]
             acc = ";".join(tests.get(rid, []))
+            if not acc and r.get("verify", "").startswith(("runbook", "onboarding checklist")):
+                acc = "runbook"
             tsk = ";".join(tasks.get(rid, []))
             conf = r.get("confidence", "")
-            status = "blocked" if conf.startswith("unknown") else ("gap" if not (acc and tsk) else "ready")
-            rows.append({
-                "requirement_id": rid, "hub": r["hub"], "area": r["area"],
-                "priority": r.get("priority", ""), "confidence": conf,
-                "source_url": r.get("source", ""), "contract": r.get("contract", ""),
-                "acceptance": acc, "task": tsk, "status": status,
-            })
+            status = (
+                "blocked"
+                if conf.startswith("unknown")
+                else ("gap" if not (acc and tsk) else "ready")
+            )
+            rows.append(
+                {
+                    "requirement_id": rid,
+                    "hub": r["hub"],
+                    "area": r["area"],
+                    "priority": r.get("priority", ""),
+                    "confidence": conf,
+                    "source_url": r.get("source", ""),
+                    "contract": r.get("contract", ""),
+                    "acceptance": acc,
+                    "task": tsk,
+                    "status": status,
+                }
+            )
         orphans = sorted(set(tests) - known)
         if orphans:
             print(f"{hub_dir.name}: acceptance tags with no requirement: {', '.join(orphans)}")
@@ -95,9 +119,11 @@ def main(root: Path) -> int:
         writer.writeheader()
         writer.writerows(rows)
     gaps = [r for r in rows if r["status"] == "gap"]
-    print(f"wrote {out}: {len(rows)} requirements, "
-          f"{sum(r['status'] == 'ready' for r in rows)} ready, {len(gaps)} gaps, "
-          f"{sum(r['status'] == 'blocked' for r in rows)} blocked")
+    print(
+        f"wrote {out}: {len(rows)} requirements, "
+        f"{sum(r['status'] == 'ready' for r in rows)} ready, {len(gaps)} gaps, "
+        f"{sum(r['status'] == 'blocked' for r in rows)} blocked"
+    )
     for r in gaps:
         missing = [c for c in ("acceptance", "task") if not r[c]]
         print(f"  gap {r['requirement_id']} ({r['priority']}): no {' or '.join(missing)}")

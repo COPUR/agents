@@ -23,7 +23,7 @@ Follow the `roaming-hub-analysis` skill. In short:
 2. Build a source registry first: every URL, document version, date retrieved and licence. Prefer primary sources (the hub's repository or portal) over blogs and vendor summaries.
 3. Extract facts hub by hub into the report template: protocol and module map, message flows, identity and security model, onboarding and certification, commercial model, known limitations.
 4. Tag every claim as Fact (source cited), Inference (reasoned, say from what) or Unknown (say who could confirm it). When two sources disagree, record both and name the more authoritative one.
-5. Draw each important flow as a Mermaid sequence diagram, using only the participants and messages the sources support.
+5. Draw each important flow as a Mermaid sequence diagram, using only the participants and messages the sources support. For each flow also write the failure catalogue (see `references/flows-guide.md` in the roaming-hub-analysis skill): trigger, detection, exact code, required eMSP action, retry or timeout rule and customer effect.
 6. Compare against the baseline eMSP and list gaps with a severity and a suggested owner. Derive the repository needs from the gaps.
 7. Finish with open questions to send to each hub's onboarding contact, and with what you could not verify.
 8. Emit the spec bundle for spec-driven development: requirements with stable IDs, pinned or overlay contracts (OpenAPI, AsyncAPI, profiles), Gherkin acceptance files, tasks and a traceability CSV, as described in the skill's `references/sdd-artifacts.md`. Pull published contracts with the skill's fetch script rather than retyping them, lint what you write, and say which checks you could not run.
