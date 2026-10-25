@@ -1,7 +1,7 @@
 # Agentic Plugin Marketplace
 
-> Production-ready agentic workflow building blocks: **95 plugins**, **203 agents**,
-> **185 skills**, **106 commands** — built for Claude Code and consumed natively by
+> Production-ready agentic workflow building blocks: **96 plugins**, **206 agents**,
+> **186 skills**, **107 commands** — built for Claude Code and consumed natively by
 > OpenAI Codex CLI, Cursor, OpenCode, the Antigravity CLI, GitHub Copilot, and Pi from a single Markdown source.
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-native-blueviolet)](#claude-code) [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-supported-black)](docs/harnesses.md) [![Cursor](https://img.shields.io/badge/Cursor-supported-purple)](docs/harnesses.md) [![OpenCode](https://img.shields.io/badge/OpenCode-supported-green)](docs/harnesses.md) [![Antigravity CLI](https://img.shields.io/badge/Antigravity%20CLI-supported-blue)](docs/harnesses.md) [![Copilot](https://img.shields.io/badge/Copilot-supported-lightgrey)](docs/harnesses.md) [![Pi](https://img.shields.io/badge/Pi-supported-orange)](docs/harnesses.md)
@@ -19,7 +19,7 @@ Pick your harness:
 
 ```bash
 /plugin marketplace add wshobson/agents
-/plugin install python-development          # or any of 95 plugins
+/plugin install python-development          # or any of 96 plugins
 ```
 
 [→ Full Claude Code setup, troubleshooting, and plugin catalog](docs/usage.md)
@@ -58,10 +58,10 @@ Setup details and per-harness gotchas: [docs/harnesses.md](docs/harnesses.md).
 
 | | Count | What it is |
 |---|---:|---|
-| **Plugins** | 95 | Granular, single-purpose installable units (93 local + 2 external via git-subdir) |
-| **Agents** | 203 | Domain experts (architecture, languages, infra, security, data, ML, docs, business, SEO) |
-| **Skills** | 185 | Modular knowledge packages with progressive disclosure (load when activated) |
-| **Commands** | 106 | Slash commands: scaffolding, security scans, test gen, infrastructure setup |
+| **Plugins** | 96 | Granular, single-purpose installable units (94 local + 2 external via git-subdir) |
+| **Agents** | 206 | Domain experts (architecture, languages, infra, security, data, ML, docs, business, SEO) |
+| **Skills** | 186 | Modular knowledge packages with progressive disclosure (load when activated) |
+| **Commands** | 107 | Slash commands: scaffolding, security scans, test gen, infrastructure setup |
 | **Orchestrators** | 16 | Multi-agent coordination workflows (full-stack, security, ML, incident response) |
 
 Browse the catalog: [docs/plugins.md](docs/plugins.md) · [docs/agents.md](docs/agents.md) · [docs/agent-skills.md](docs/agent-skills.md)
@@ -136,9 +136,9 @@ uv run plugin-eval certify path/to/skill
 
 Detail lives in `docs/`. Read in this order:
 
-- **[docs/plugins.md](docs/plugins.md)** — full catalog of all 95 plugins
-- **[docs/agents.md](docs/agents.md)** — all 203 agents by category
-- **[docs/agent-skills.md](docs/agent-skills.md)** — 185 skills with progressive disclosure
+- **[docs/plugins.md](docs/plugins.md)** — full catalog of all 96 plugins
+- **[docs/agents.md](docs/agents.md)** — all 206 agents by category
+- **[docs/agent-skills.md](docs/agent-skills.md)** — 186 skills with progressive disclosure
 - **[docs/usage.md](docs/usage.md)** — commands, workflows, examples
 - **[docs/architecture.md](docs/architecture.md)** — design principles
 - **[docs/harnesses.md](docs/harnesses.md)** — cross-harness capability matrix
