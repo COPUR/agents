@@ -486,6 +486,17 @@
       "license": "MIT"
     },
     {
+      "name": "ev-pnc-squad",
+      "source": "./plugins/ev-pnc-squad",
+      "version": "1.0.0",
+      "description": "EV_PNC squad agents scoped to the programme Slack channels and epics: BDAT architect (TOGAF business, data, application, technology views), DevSecOps engineer and quality lead, with a shared programme context and a review command",
+      "author": {
+        "name": "COPUR",
+        "email": ""
+      },
+      "license": "MIT"
+    },
+    {
       "name": "ev-roaming-hubs",
       "source": "./plugins/ev-roaming-hubs",
       "version": "1.0.0",

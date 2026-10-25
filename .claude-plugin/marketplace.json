@@ -1305,6 +1305,19 @@
       "homepage": "https://github.com/COPUR/agents",
       "license": "MIT",
       "category": "api"
+    },
+    {
+      "name": "ev-pnc-squad",
+      "source": "./plugins/ev-pnc-squad",
+      "description": "EV_PNC squad agents scoped to the programme Slack channels and epics: BDAT architect (TOGAF business, data, application, technology views), DevSecOps engineer and quality lead, with a shared programme context and a review command",
+      "version": "1.0.0",
+      "author": {
+        "name": "COPUR",
+        "url": "https://github.com/COPUR"
+      },
+      "homepage": "https://github.com/COPUR/agents",
+      "license": "MIT",
+      "category": "api"
     }
   ]
 }
