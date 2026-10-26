@@ -1,6 +1,6 @@
 ---
 name: ev-pnc-programme-context
-description: Shared context for the EV_PNC squad agents (BDAT architect, DevSecOps engineer, quality lead). Use when scoping work to the EV_PNC programme Slack channels, epics E0-E7, kanban v2 cards, repositories, gates K1-K9 or KPI-1..7.
+description: Shared context for the EV_PNC squad agents (BDAT architect, DevSecOps engineer, quality lead, CI auditor). Use when scoping work to the EV_PNC programme Slack channels, epics E0-E7, kanban v2 cards, repositories, gates K1-K9 or KPI-1..7.
 ---
 
 # EV_PNC programme context
@@ -44,3 +44,4 @@ Project files sit in the project's shared folder; if the caller gave no path, as
 - `references/bdat-views.md`: the four architecture views, per-view artefacts and checks.
 - `references/devsecops-controls.md`: pipeline and platform controls, repo by repo.
 - `references/quality-strategy.md`: risk map, test levels, KPI and gate evidence.
+- `references/ci-auditor.md`: the shared CI auditor workflow, caller shape, triage playbook and open rollout decisions (used by the CI auditor agent).
