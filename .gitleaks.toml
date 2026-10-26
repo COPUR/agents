@@ -10,3 +10,11 @@ useDefault = true
 # [[allowlists]]
 # description = "why this is safe"
 # paths = ['''docs/examples/sample-token\.md''']
+
+[[allowlists]]
+description = "Upstream marketplace content, not credentials: curl examples with placeholder Authorization headers in doc-generate command docs, and a prompt string in the plugin-eval static layer that mentions token efficiency"
+paths = [
+  '''^plugins/(code-documentation|documentation-generation)/commands/doc-generate\.md$''',
+  '''^tools/doc-generate\.md$''',
+  '''^plugins/plugin-eval/src/plugin_eval/layers/static\.py$''',
+]
