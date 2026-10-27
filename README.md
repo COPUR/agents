@@ -1,6 +1,6 @@
 # Agentic Plugin Marketplace
 
-> Production-ready agentic workflow building blocks: **96 plugins**, **207 agents**,
+> Production-ready agentic workflow building blocks: **96 plugins**, **208 agents**,
 > **186 skills**, **107 commands** — built for Claude Code and consumed natively by
 > OpenAI Codex CLI, Cursor, OpenCode, the Antigravity CLI, GitHub Copilot, and Pi from a single Markdown source.
 
@@ -59,7 +59,7 @@ Setup details and per-harness gotchas: [docs/harnesses.md](docs/harnesses.md).
 | | Count | What it is |
 |---|---:|---|
 | **Plugins** | 96 | Granular, single-purpose installable units (94 local + 2 external via git-subdir) |
-| **Agents** | 207 | Domain experts (architecture, languages, infra, security, data, ML, docs, business, SEO) |
+| **Agents** | 208 | Domain experts (architecture, languages, infra, security, data, ML, docs, business, SEO) |
 | **Skills** | 186 | Modular knowledge packages with progressive disclosure (load when activated) |
 | **Commands** | 107 | Slash commands: scaffolding, security scans, test gen, infrastructure setup |
 | **Orchestrators** | 16 | Multi-agent coordination workflows (full-stack, security, ML, incident response) |
@@ -137,7 +137,7 @@ uv run plugin-eval certify path/to/skill
 Detail lives in `docs/`. Read in this order:
 
 - **[docs/plugins.md](docs/plugins.md)** — full catalog of all 96 plugins
-- **[docs/agents.md](docs/agents.md)** — all 207 agents by category
+- **[docs/agents.md](docs/agents.md)** — all 208 agents by category
 - **[docs/agent-skills.md](docs/agent-skills.md)** — 186 skills with progressive disclosure
 - **[docs/usage.md](docs/usage.md)** — commands, workflows, examples
 - **[docs/architecture.md](docs/architecture.md)** — design principles
